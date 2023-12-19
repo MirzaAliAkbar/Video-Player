@@ -1,0 +1,272 @@
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">  
+    <title>Video and MP3 Player</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__content">
+        <div class="header__logo-container"> <span class="header__logo-sub">Media
+            Player</span> </div>
+        <div class="header__main">
+          <ul class="header__links">
+            <li class="header__link-wrapper"> <a href="./index.html" class="header__link">
+                Home </a> </li>
+            <li class="header__link-wrapper"> <a href="https://mirzaaliakbar.surge.sh"
+
+                class="header__link">Portfolio </a> </li>
+          </ul>
+          <div class="header__main-ham-menu-cont"> <img src="./assets/svg/ham-menu.svg"
+
+              alt="hamburger menu" class="header__main-ham-menu"> <img src="./assets/svg/ham-menu-close.svg"
+
+              alt="hamburger menu close" class="header__main-ham-menu-close d-none">
+          </div>
+        </div>
+      </div>
+      <div class="header__sm-menu">
+        <div class="header__sm-menu-content">
+          <ul class="header__sm-menu-links">
+            <li class="header__sm-menu-link"> <a href="./index.html"> Home </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="content-container">
+    <section class="home-hero">
+      <form onsubmit="return false;">
+        <div class="mp-3" id="upload" style="position: absolute; left: 514px; top: 381px; width: 611px; height: 137px;">
+          <label for="video-link" class="form-label">drag and drop a video:</label>
+          <div id="drop-zone" class="drop-zone" ondrop="handleDrop(event)" ondragover="allowDrop(event)">Drop
+            video here</div>
+          <label for="video-file" class="form-label">Upload video:</label><input
+
+            id="video-file" class="form-control" accept="video/.mp3" onchange="handleFile(event)"
+
+            type="file"> </div>
+      </form>
+    </section>
+    <div class="home-hero__socials">
+      <div class="home-hero__social"> <a href="https://dev.to/mirzaaliakbar" class="home-hero__social-icon-link"
+
+          style="margin-top: -101.493px;"> <img src="./assets/png/dev-to.png" alt="icon"
+
+            class="home-hero__social-icon"> </a> </div>
+      <div class="home-hero__social"> <a href="https://github.com/Mirza-Ali-Akbar"
+
+          class="home-hero__social-icon-link"> <img src="./assets/png/github-ico.png"
+
+            alt="icon" class="home-hero__social-icon"> </a> </div>
+      <div class="home-hero__social"> <a href="https://twitter.com/Mirza_Ali_Akbar"
+
+          class="home-hero__social-icon-link"> <img src="./assets/png/twitter-ico.png"
+
+            alt="icon" class="home-hero__social-icon"> </a> </div>
+      <div class="home-hero__social"> <a href="https://www.youtube.com/@mirza_ali_akbar"
+
+          class="home-hero__social-icon-link"> <img src="./assets/png/yt-ico.png"
+
+            alt="icon" class="home-hero__social-icon"> </a> </div>
+      <div class="home-hero__social"> <a href="https://www.quora.com/profile/Mirza-Ali-Akbar-1/"
+
+          class="home-hero__social-icon-link home-hero__social-icon-link--bd-none">
+          <img src="./assets/png/quora.png" alt="icon" class="home-hero__social-icon">
+        </a> </div>
+    </div>
+    </div>
+    <section id="about" class="about sec-pad">
+      <div class="row">
+          <h1 id="heading-2" draggable="false" style="position: absolute; right: 132px; bottom: 15px; pointer-events: auto; top: 145px; left: 425px; width: 241px;"><span
+
+              style="color: white;"></span></h1>
+          <form class="url-box" onsubmit="return false;" draggable="false" style="position: absolute; left: 500px; top: 231px; width: 470.335px; pointer-events: auto;">
+            <div class="mp-3" draggable="false" style="pointer-events:auto;"> <label
+
+                for="video-link" class="form-label" draggable="false" style="pointer-events:auto;">Enter
+                video link:</label> <input class="form-control" id="video-link"
+
+                placeholder="https://example.com/video.mp4 or YouTube video ID"
+
+                draggable="false"
+
+                type="text"> </div>
+            <button type="button" class="btn btn-primary" onclick="playVideo()"
+
+              draggable="false" style="pointer-events:auto;">Play Video</button>
+          </form>
+          <div id="video-container" class="mt-3 d-none" draggable="false" style="pointer-events:auto;">
+            <div id="youtube-player" draggable="false" style="pointer-events:auto;transform-origin:609.7140278320312px 118.62000274658203px;width:720.162px;height:318.954px;left:199.386px;top:700.012px;position:absolute;"></div>
+            <video id="video-player" class="w-5" controls="controls" draggable="false"
+
+              style="pointer-events:auto;transform-origin:609.7140278320312px 118.62000274658203px;width:720.162px;height:318.954px;right:100.386px;top:700.012px;position:absolute;"></video>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>let player;
+
+          function onYouTubeIframeAPIReady() {
+            player = new YT.Player('youtube-player', {
+              height: '360',
+              width: '640',
+              playerVars: {
+                controls: 1,
+                autoplay: 0,
+              },
+            });
+          }
+          
+          // Add the showContainer function to your script file
+          function showContainer(link) {
+            if (link.includes('youtube.com')) {
+              // Show YouTube container
+            } else if (link.endsWith('.mp4')) {
+              // Show MP4 container
+            }
+          }
+          
+          // Use the showContainer function when a link is entered
+          const linkInput = document.querySelector('#link-input');
+          linkInput.addEventListener('input', () => {
+            const link = linkInput.value;
+            showContainer(link);
+          });
+          
+          
+          function playVideo() {
+            const videoLink = document.getElementById('video-link').value;
+            const videoContainer = document.getElementById('video-container');
+            const youtubePlayer = document.getElementById('youtube-player');
+            const videoPlayer = document.getElementById('video-player');
+          
+            videoContainer.classList.add('d-none');
+            youtubePlayer.innerHTML = '';
+          
+            if (videoLink.includes('youtube.com') || videoLink.includes('youtu.be')) {
+              const videoId = extractYouTubeVideoId(videoLink);
+              if (videoId) {
+                if (typeof YT === 'undefined' || typeof YT.Player === 'undefined') {
+                  loadYouTubeIframeAPI(() => {
+                    playYouTubeVideo(videoId);
+                  });
+                } else {
+                  playYouTubeVideo(videoId);
+                }
+              }
+            } else if (videoLink) {
+              videoPlayer.innerHTML = '';
+              videoPlayer.insertAdjacentHTML('beforeend', `<source src="${videoLink}" type="video/mp4">`);
+              videoPlayer.load();
+              videoPlayer.play();
+              videoContainer.classList.remove('d-none');
+              youtubePlayer.classList.add('d-none');
+              player.stopVideo();
+            }
+          }
+          
+          function extractYouTubeVideoId(url) {
+            let videoId = null;
+            const youtubeRegex = /^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/watch\?v=|youtu.be\/)([^\s&?\/]+)/;
+          
+          const matches = url.match(youtubeRegex);
+          if (matches && matches[1]) {
+          videoId = matches[1];
+          }
+          return videoId;
+          }
+          
+          function loadYouTubeIframeAPI(callback) {
+          const tag = document.createElement('script');
+          tag.src = 'https://www.youtube.com/iframe_api';
+          const firstScriptTag = document.getElementsByTagName('script')[0];
+          firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+          window.onYouTubeIframeAPIReady = callback;
+          }
+          
+          function playYouTubeVideo(videoId) {
+          player.loadVideoById(videoId);
+          const videoContainer = document.getElementById('video-container');
+          const youtubePlayer = document.getElementById('youtube-player');
+          const videoPlayer = document.getElementById('video-player');
+          youtubePlayer.classList.remove('d-none');
+          videoPlayer.pause();
+          videoContainer.classList.remove('d-none');
+          }
+          
+          function allowDrop(event) {
+          event.preventDefault();
+          }
+          
+          function handleDrop(event) {
+          event.preventDefault();
+          const file = event.dataTransfer.files[0];
+          loadAndPlayVideo(file);
+          }
+          
+          function handleFile(event) {
+          const file = event.target.files[0];
+          loadAndPlayVideo(file);
+          }
+          
+          function loadAndPlayVideo(file) {
+          const videoPlayer = document.getElementById('video-player');
+          videoPlayer.innerHTML = '';
+          videoPlayer.insertAdjacentHTML('beforeend', `<source src="${URL.createObjectURL(file)}" type="video/mp4">`);
+          videoPlayer.load();
+          videoPlayer.play();
+          document.getElementById('video-container').classList.remove('d-none');
+          document.getElementById('youtube-player').classList.add('d-none');
+          player.stopVideo();
+          }</script>
+      <script src="./index.js"></script>
+  </body>
+  <footer class="main-footer">
+    <div class="main-container">
+      <div class="main-footer__upper">
+        <div class="main-footer__row main-footer__row-1">
+          <h2 class="heading heading-sm main-footer__heading-sm"> <span>Social</span>
+          </h2>
+          <div class="main-footer__social-cont"> <a target="_blank" rel="noreferrer"
+
+              href="#"> <img class="main-footer__icon" src="./assets/png/linkedin-ico.png"
+
+                alt="icon"> </a> <a target="_blank" rel="noreferrer" href="#">
+              <img class="main-footer__icon" src="./assets/png/github-ico.png"
+
+                alt="icon"> </a> <a target="_blank" rel="noreferrer" href="#">
+              <img class="main-footer__icon" src="./assets/png/twitter-ico.png"
+
+                alt="icon"> </a> <a target="_blank" rel="noreferrer" href="#">
+              <img class="main-footer__icon" src="./assets/png/yt-ico.png" alt="icon">
+            </a> <a target="_blank" rel="noreferrer" href="#"> <img class="main-footer__icon main-footer__icon--mr-none"
+
+                src="./assets/png/insta-ico.png" alt="icon"> </a> </div>
+        </div>
+        <div class="main-footer__row main-footer__row-2">
+          <h4 class="heading heading-sm text-lt"><a href="https://mirzaaliakbar.github.io">Mirza Ali Akbar</a></h4>
+          <p class="main-footer__short-desc"> I'm a website, web app and
+            application developer. I like coding and gaming. </p>
+        </div>
+      </div>
+      <!-- If you give me some credit or shoutout here by linking to my website, then it will be a big thing for me and will help me a lot :) -->
+      <div class="main-footer__lower"> © Copyright 2021. Made by <a rel="noreferrer"
+
+          target="_blank" href="https://mirzaaliakbar.github.io">Mirza Ali
+          Akbar</a> </div>
+    </div>
+  </footer>
+</html>
